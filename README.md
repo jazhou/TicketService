@@ -2,7 +2,7 @@
 This is a simple ticket service app that can display available seats, hold a number of seats for the customer, and reserve a held seat. <br>
 
 
-#Assumptions
+# Assumptions
 1. Security support is out of scope in this app. All rest endpoints and their services are wide open. 
 2. High scalability support is out of scope in this app. The app is not designed to support high volume traffic, or highly concurrent situation. 
 3. UI is also out of scope.. Only backend is implemented in this app. 
@@ -38,7 +38,7 @@ Standard abbreviations are used for any database table name, or column name. For
 1. <b>Spring MockMvc</b> is chosen to test rest controllers. It gives us the ability to verify the request headers, reques/response body as well as the status code.
 2. <b>Mockito</b> is used to for all unit test classes. <br>
 
-#Rest APIs
+# Rest APIs
 Besides all the endpoints offered by Spring Boot framewwork, Ticket Service provides 4 APIs ont its own. You can either use curl, or Postman to try them. 
 Here is the base url:<br>
 <b>http://localhost:8090/TicketService/v1</b>
@@ -66,7 +66,7 @@ Here is the base url:<br>
                      }<br>
                      
 
-#Error Handling
+# Error Handling
 TicketService translates the erroneous conditions into proper https status code so the user understands what went wrong. Also the app always logs
 the whole exception stack for easy troubleshooting purpose. Please refer to class <b>RestControllerErrorHandler.java</b> for more information<br>
  
