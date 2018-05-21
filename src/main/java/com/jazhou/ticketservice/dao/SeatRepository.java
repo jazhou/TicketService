@@ -9,5 +9,12 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface SeatRepository extends JpaRepository<SeatEntity, Long>
 {
-    List<SeatEntity> findAllBySeatHoldNull();
+    /**
+     * Find all available seats. If a seat is not available, its seat hold id should be populated.
+     *
+     * THe list is sorted by the row number in ascending order so the list is sorted from best seats to worse seats.
+     *
+     * @return list of seats
+     */
+    List<SeatEntity> findAllBySeatHoldNullOrderByRowAsc();
 }

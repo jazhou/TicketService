@@ -12,7 +12,6 @@ import com.jazhou.ticketservice.dto.SeatHold;
 import com.jazhou.ticketservice.dto.SeatReservationCreateResponse;
 import com.jazhou.ticketservice.exception.ResourceNotFoundException;
 import com.jazhou.ticketservice.service.TicketService;
-import com.jazhou.ticketservice.service.VenueService;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.InjectMocks;
@@ -42,8 +41,6 @@ public class TicketServiceControllerTest
     private TicketServiceController ticketServiceController;
     @Mock
     private TicketService ticketService;
-    @Mock
-    private VenueService venueService;
 
     private MockMvc mockMvc;
 

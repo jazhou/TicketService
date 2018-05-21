@@ -7,6 +7,7 @@ public final class Constants
 {
     /**
      * A seat hold can be only kept for a number of seconds. After that the seat hold should be deleted, and all its seats should become available again.
+     * TODO make it a property so the value can be configurable.
      */
     public static final int SEAT_HOLD_DURATION_IN_SECONDS = 60;
 
@@ -19,9 +20,9 @@ public final class Constants
 
     public static final String AVAILABLE_SEATS_URL = "/seats";
 
-    public static final String CREATE_SEAT_HOLD_URL = "/seatHolds";
+    public static final String CREATE_SEAT_HOLD_URL = "/holds";
 
-    public static final String CREATE_SEAT_RESERVATION_URL = "/seatReservations";
+    public static final String CREATE_SEAT_RESERVATION_URL = "/reservations";
 
     /**
      * Error messages to the user in case of exception

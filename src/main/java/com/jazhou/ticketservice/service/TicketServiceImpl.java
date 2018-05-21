@@ -40,7 +40,7 @@ public class TicketServiceImpl implements TicketService
     public int numSeatsAvailable()
     {
         LOGGER.info("Retrieving number of seating available in the venue");
-        return (int) seatRepository.findAllBySeatHoldNull().size();
+        return (int) seatRepository.findAllBySeatHoldNullOrderByRowAsc().size();
     }
 
     @Override
@@ -52,7 +52,7 @@ public class TicketServiceImpl implements TicketService
 
         LOGGER.info(String.format("Holding seats. numSeats=%d, customerEmail=%s", numSeats, customerEmail));
 
-        List<SeatEntity> seatEntityList = seatRepository.findAllBySeatHoldNull();
+        List<SeatEntity> seatEntityList = seatRepository.findAllBySeatHoldNullOrderByRowAsc();
         // do we have enough seats ?
         if (seatEntityList.size() < numSeats)
         {
@@ -69,6 +69,7 @@ public class TicketServiceImpl implements TicketService
 
         for (int num = 0; num < numSeats; num++)
         {
+            // the seat list is sorted basd on the row number in ascending order. So the best seats will be picked up first.
             SeatEntity seatEntity = seatEntityList.get(num);
             seatEntity.setSeatHold(seatHoldEntity);
             seatHoldEntity.getSeats().add(seatEntity);

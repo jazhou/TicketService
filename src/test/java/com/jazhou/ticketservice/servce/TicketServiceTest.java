@@ -65,10 +65,10 @@ public class TicketServiceTest
 
     @Test
     public void testNumSeatsAvailable() {
-        when(seatRepository.findAllBySeatHoldNull()).thenReturn(Collections.emptyList());
+        when(seatRepository.findAllBySeatHoldNullOrderByRowAsc()).thenReturn(Collections.emptyList());
         assertEquals(ticketService.numSeatsAvailable(), 0);
 
-        verify(seatRepository, times(1)).findAllBySeatHoldNull();
+        verify(seatRepository, times(1)).findAllBySeatHoldNullOrderByRowAsc();
     }
 
     @Test
@@ -85,10 +85,10 @@ public class TicketServiceTest
                 setColumn(2L);
             }}
         );
-        when(seatRepository.findAllBySeatHoldNull()).thenReturn(seatEntityList);
+        when(seatRepository.findAllBySeatHoldNullOrderByRowAsc()).thenReturn(seatEntityList);
         SeatHold seatHold = ticketService.findAndHoldSeats(NUM_SEATS, CUSTOMER_EMAIL);
         assertNotNull(seatHold);
-        verify(seatRepository, times(1)).findAllBySeatHoldNull();
+        verify(seatRepository, times(1)).findAllBySeatHoldNullOrderByRowAsc();
 
         verify(seatHoldRepository, times(1)).saveAndFlush(seatHoldEntityArgumentCaptor.capture());
         SeatHoldEntity seatHoldEntity = seatHoldEntityArgumentCaptor.getValue();
@@ -107,7 +107,7 @@ public class TicketServiceTest
                 setColumn(1L);
             }}
         );
-        when(seatRepository.findAllBySeatHoldNull()).thenReturn(seatEntityList);
+        when(seatRepository.findAllBySeatHoldNullOrderByRowAsc()).thenReturn(seatEntityList);
         ticketService.findAndHoldSeats(NUM_SEATS, CUSTOMER_EMAIL);
     }
 
