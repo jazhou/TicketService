@@ -1,5 +1,5 @@
 # TicketService
-This is a simple ticket service app that can display available seats, hold a number of seats for the customer, and reserve a held seat. 
+This is a simple ticket service app that can display available seats, hold a number of seats for the customer, and reserve a held seat. <br>
 
 #Assumptions
 1. Security support is out of scope in this app. All rest endpoints and their services are wide open. 
@@ -63,6 +63,7 @@ Here is the base url:<br>
                      	"email": "James.Zhou@test.org"
                      }<br>
                      
+
 #Error Handling
 TicketService translates the erroneous conditions into proper https status code so the user understands what went wrong. Also the app always logs
 the whole exception stack for easy troubleshooting purpose. Please refer to class <b>RestControllerErrorHandler.java</b> for more information<br>
