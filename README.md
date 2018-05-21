@@ -71,10 +71,10 @@ TicketService translates the erroneous conditions into proper https status code 
 the whole exception stack for easy troubleshooting purpose. Please refer to class <b>RestControllerErrorHandler.java</b> for more information<br>
  
  Here are some example mappings between exceptions and http statuses:<br>
- <b>ResourceNotFoundException <-> 404
- ExceedLimitException <-> 509
- HibernateOptimisticLockingFailureException <-> 400
- IllegalArgumentException <-> 400
- Generic Exception <-> 500
+ <b>ResourceNotFoundException <-> 404<br>
+ ExceedLimitException <-> 509<br>
+ HibernateOptimisticLockingFailureException <-> 400<br>
+ IllegalArgumentException <-> 400<br>
+ Generic Exception <-> 500<br>
  
  
