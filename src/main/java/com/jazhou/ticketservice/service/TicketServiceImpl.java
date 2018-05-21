@@ -36,7 +36,7 @@ public class TicketServiceImpl implements TicketService
     private SeatHoldRepository seatHoldRepository;
 
     @Override
-    @ExpirationServiceEnabled
+    @ExpirationServiceEnabled // clean up the expired seat holds
     public int numSeatsAvailable()
     {
         LOGGER.info("Retrieving number of seating available in the venue");
@@ -44,7 +44,7 @@ public class TicketServiceImpl implements TicketService
     }
 
     @Override
-    @ExpirationServiceEnabled
+    @ExpirationServiceEnabled // clean up the expired seat holds
     public SeatHold findAndHoldSeats(int numSeats, String customerEmail)
     {
         Assert.isTrue(numSeats > 0, "Parameter 'seatHoldId' must be a positive integer.");
@@ -82,7 +82,7 @@ public class TicketServiceImpl implements TicketService
     }
 
     @Override
-    @ExpirationServiceEnabled
+    @ExpirationServiceEnabled // clean up the expired seat holds
     public String reserveSeats(int seatHoldId, String customerEmail)
     {
         Assert.isTrue(seatHoldId >= 0, "Parameter 'seatHoldId' must be a non-negative integer.");

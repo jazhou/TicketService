@@ -8,7 +8,11 @@ This is a simple ticket service app that can display available seats, hold a num
 4. Unit test coverage does not need to be perfect. 
 
 # Design consideration
-1. 
+ 1. This app is based on <b>Spring Boot</b> framework since Spring boot provides many rich features out of the box. A lot of 
+ boilerplate code are avoid by using Spring framework. 
+ 2. Spring Data is chosen to persist the data due to its simplicity. 
+ 3. This app uses the typical layered architectures: dao, service, controller. 
+ 4. Aspect is used to clean up the expired seat holds. To me this task is a cross cutting concern so aspect is used. 
 
 # Build Instruction
 I choose Maven as the build tool. 
@@ -30,7 +34,7 @@ Standard abbreviations are used for any database table name, or column name. For
 
 # Unit test
 1. <b>Spring MockMvc</b> is chosen to test rest controllers. It gives us the ability to verify the request headers, reques/response body as well as the status code.
-2. <b>Mockito</b> is used to for all unit test classes. 
+2. <b>Mockito</b> is used to for all unit test classes. <br>
 
 #Rest APIs
 Besides all the endpoints offered by Spring Boot framewwork, Ticket Service provides 4 APIs ont its own. You can either use curl, or Postman to try them. 
@@ -57,13 +61,13 @@ Here is the base url:<br>
 <b>Request Body</b>: {
                      	"seatHoldId":3,
                      	"email": "James.Zhou@test.org"
-                     }
+                     }<br>
                      
 #Error Handling
 TicketService translates the erroneous conditions into proper https status code so the user understands what went wrong. Also the app always logs
 the whole exception stack for easy troubleshooting purpose. Please refer to class <b>RestControllerErrorHandler.java</b> for more information<br>
  
- Here are the mappings between exception and http status:<br>
+ Here are some example mappings between exceptions and http statuses:<br>
  <b>ResourceNotFoundException <-> 404
  ExceedLimitException <-> 509
  HibernateOptimisticLockingFailureException <-> 400
