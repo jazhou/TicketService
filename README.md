@@ -1,6 +1,7 @@
 # TicketService
 This is a simple ticket service app that can display available seats, hold a number of seats for the customer, and reserve a held seat. <br>
 
+
 #Assumptions
 1. Security support is out of scope in this app. All rest endpoints and their services are wide open. 
 2. High scalability support is out of scope in this app. The app is not designed to support high volume traffic, or highly concurrent situation. 
@@ -10,9 +11,10 @@ This is a simple ticket service app that can display available seats, hold a num
 # Design consideration
  1. This app is based on <b>Spring Boot</b> framework since Spring boot provides many rich features out of the box. A lot of 
  boilerplate code are avoid by using Spring framework. 
- 2. Spring Data is chosen to persist the data due to its simplicity. 
+ 2. <b>Spring Data</b> is chosen to persist the data due to its simplicity. 
  3. This app uses the typical layered architectures: dao, service, controller. 
- 4. Aspect is used to clean up the expired seat holds. To me this task is a cross cutting concern so aspect is used. 
+ 4. <b>Aspect</b> is used to clean up the expired seat holds. To me this task is a cross cutting concern so aspect is used. 
+ Refer to class <b>SeatHoldExpirationAspect.java</b> for more information.
 
 # Build Instruction
 I choose Maven as the build tool. 
